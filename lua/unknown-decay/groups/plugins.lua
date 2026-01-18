@@ -440,7 +440,7 @@ function M.get(c, config)
     -- ============================================
 
     LazyButton = { fg = c.fg, bg = c.bg_highlight },
-    LazyButtonActive = { fg = c.bg, bg = c.green, bold = true },
+    LazyButtonActive = { fg = c.fg_light, bg = c.pmenu_sel, bold = true },
     LazyComment = { fg = c.gray },
     LazyCommit = { fg = c.teal },
     LazyCommitIssue = { fg = c.orange },

@@ -115,7 +115,7 @@ M.colors = {
   -- ============================================
   -- Special UI Elements (base colors - blend applied in groups)
   -- ============================================
-  pmenu_sel = "#7ddac5",    -- editorSuggestWidget.selectedBackground (27% blend)
+  pmenu_sel = "#2a4443",    -- editorSuggestWidget.selectedBackground (27% blend of #7ddac5 over bg_dark)
   pmenu_match = "#78dba9",  -- editorSuggestWidget.highlightForeground
   bracket_match = "#006400", -- editorBracketMatch.background (10% blend)
   indent_guide = "#1a1e23", -- editorIndentGuide.background
