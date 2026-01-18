@@ -1,38 +1,21 @@
--- unknown-decay/groups/init.lua
--- Aggregates all highlight groups from submodules
-
 local M = {}
 
 function M.get_all(colors, config)
   local highlights = {}
 
   -- Load all group modules
-  local editor = require("unknown-decay.groups.editor")
-  local syntax = require("unknown-decay.groups.syntax")
-  local treesitter = require("unknown-decay.groups.treesitter")
-  local lsp = require("unknown-decay.groups.lsp")
-  local plugins = require("unknown-decay.groups.plugins")
-
-  -- Load language-specific modules
-  local typescript = require("unknown-decay.languages.typescript")
-  local python = require("unknown-decay.languages.python")
-  local html = require("unknown-decay.languages.html")
-  local css = require("unknown-decay.languages.css")
-  local json = require("unknown-decay.languages.json")
-
-  -- Merge all highlights (order matters - later ones override earlier)
   local modules = {
-    editor.get(colors, config),
-    syntax.get(colors, config),
-    treesitter.get(colors, config),
-    lsp.get(colors, config),
-    plugins.get(colors, config),
-    -- Language-specific overrides (highest priority)
-    typescript.get(colors, config),
-    python.get(colors, config),
-    html.get(colors, config),
-    css.get(colors, config),
-    json.get(colors, config),
+    require("unknown-decay.groups.editor").get(colors, config),
+    require("unknown-decay.groups.syntax").get(colors, config),
+    require("unknown-decay.groups.treesitter").get(colors, config),
+    require("unknown-decay.groups.lsp").get(colors, config),
+    require("unknown-decay.groups.plugins").get(colors, config),
+    -- Language-specific overrides
+    require("unknown-decay.languages.typescript").get(colors, config),
+    require("unknown-decay.languages.python").get(colors, config),
+    require("unknown-decay.languages.html").get(colors, config),
+    require("unknown-decay.languages.css").get(colors, config),
+    require("unknown-decay.languages.json").get(colors, config),
   }
 
   for _, module in ipairs(modules) do
@@ -41,7 +24,7 @@ function M.get_all(colors, config)
     end
   end
 
-  -- Apply user highlight overrides from config
+  -- Apply user highlight overrides
   local user_highlights = config.get("highlights")
   if user_highlights then
     for group, hl in pairs(user_highlights) do

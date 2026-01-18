@@ -1,80 +1,54 @@
--- unknown-decay/groups/plugins.lua
--- Plugin-specific highlight groups mapped from VS Code decay.json
-
 local M = {}
 
 function M.get(c, config)
-  local transparent = config.is_transparent()
-
   return {
-    -- ============================================
-    -- TELESCOPE
-    -- ============================================
-
+    -- Telescope
     TelescopeNormal = { fg = c.fg, bg = c.bg_dark },
     TelescopeBorder = { fg = c.border_light, bg = c.bg_dark },
     TelescopeTitle = { fg = c.green, bold = true },
-
-    -- Prompt
     TelescopePromptNormal = { fg = c.fg, bg = c.bg_highlight },
     TelescopePromptBorder = { fg = c.bg_highlight, bg = c.bg_highlight },
     TelescopePromptTitle = { fg = c.bg, bg = c.green, bold = true },
     TelescopePromptPrefix = { fg = c.green },
     TelescopePromptCounter = { fg = c.gray },
-
-    -- Preview
     TelescopePreviewNormal = { fg = c.fg, bg = c.bg_dark },
     TelescopePreviewBorder = { fg = c.border_light, bg = c.bg_dark },
     TelescopePreviewTitle = { fg = c.bg, bg = c.blue, bold = true },
     TelescopePreviewLine = { bg = c.bg_highlight },
-
-    -- Results
     TelescopeResultsNormal = { fg = c.fg, bg = c.bg_dark },
     TelescopeResultsBorder = { fg = c.border_light, bg = c.bg_dark },
     TelescopeResultsTitle = { fg = c.bg_dark, bg = c.bg_dark },
-
-    -- Selection
     TelescopeSelection = { fg = c.fg, bg = c.bg_highlight },
     TelescopeSelectionCaret = { fg = c.green, bg = c.bg_highlight },
     TelescopeMultiSelection = { fg = c.purple, bg = c.bg_highlight },
     TelescopeMultiIcon = { fg = c.purple },
+    TelescopeMatching = { fg = c.green, bold = true },
 
-    -- Matching
-    TelescopeMatching = { fg = c.green, bold = true },         -- list.highlightForeground -> #78dba9
-
-    -- ============================================
-    -- NEO-TREE
-    -- ============================================
-
-    NeoTreeNormal = { fg = c.fg, bg = "#13171b" },             -- sideBar
+    -- Neo-tree
+    NeoTreeNormal = { fg = c.fg, bg = "#13171b" },
     NeoTreeNormalNC = { fg = c.fg, bg = "#13171b" },
     NeoTreeVertSplit = { fg = "#13171b", bg = "#13171b" },
     NeoTreeWinSeparator = { fg = "#13171b", bg = "#13171b" },
     NeoTreeEndOfBuffer = { fg = "#13171b" },
-
     NeoTreeRootName = { fg = c.fg, bold = true },
-    NeoTreeFileName = { fg = c.fg },                           -- sideBar.foreground -> #b6beca
+    NeoTreeFileName = { fg = c.fg },
     NeoTreeFileIcon = { fg = c.blue },
     NeoTreeDirectoryName = { fg = c.blue },
     NeoTreeDirectoryIcon = { fg = c.blue },
     NeoTreeSymbolicLinkTarget = { fg = c.aqua },
     NeoTreeExpander = { fg = c.gray_dark },
-    NeoTreeIndentMarker = { fg = c.bg_light },                 -- tree.indentGuidesStroke -> #15191e
-
-    -- Git status colors from gitDecoration
-    NeoTreeGitAdded = { fg = c.git_add },                      -- #78dba9
-    NeoTreeGitConflict = { fg = c.git_conflict },              -- #c68aee
-    NeoTreeGitDeleted = { fg = c.git_delete },                 -- #e05f65
-    NeoTreeGitIgnored = { fg = c.git_ignored },                -- #485263
-    NeoTreeGitModified = { fg = c.git_change },                -- #f1cf8a
+    NeoTreeIndentMarker = { fg = c.bg_light },
+    NeoTreeGitAdded = { fg = c.git_add },
+    NeoTreeGitConflict = { fg = c.git_conflict },
+    NeoTreeGitDeleted = { fg = c.git_delete },
+    NeoTreeGitIgnored = { fg = c.git_ignored },
+    NeoTreeGitModified = { fg = c.git_change },
     NeoTreeGitUnstaged = { fg = c.git_change },
-    NeoTreeGitUntracked = { fg = c.git_untracked },            -- #7ddac5
+    NeoTreeGitUntracked = { fg = c.git_untracked },
     NeoTreeGitStaged = { fg = c.green },
-
     NeoTreeFloatBorder = { fg = c.border_light },
     NeoTreeFloatTitle = { fg = c.green, bold = true },
     NeoTreeTitleBar = { fg = c.bg, bg = c.green },
-
     NeoTreeCursorLine = { bg = c.bg_highlight },
     NeoTreeDimText = { fg = c.gray_dark },
     NeoTreeDotfile = { fg = c.gray },
@@ -88,49 +62,39 @@ function M.get(c, config)
     NeoTreeTabSeparatorActive = { fg = c.green, bg = c.bg },
     NeoTreeTabSeparatorInactive = { fg = c.bg_light, bg = c.bg_light },
 
-    -- ============================================
-    -- GITSIGNS
-    -- ============================================
-
-    GitSignsAdd = { fg = c.git_add },                          -- editorGutter.addedBackground -> #78dba9
-    GitSignsChange = { fg = c.aqua },                          -- editorGutter.modifiedBackground -> #7ddac5
-    GitSignsDelete = { fg = c.git_delete },                    -- editorGutter.deletedBackground -> #e05f65
-
+    -- Gitsigns
+    GitSignsAdd = { fg = c.git_add },
+    GitSignsChange = { fg = c.aqua },
+    GitSignsDelete = { fg = c.git_delete },
     GitSignsAddNr = { fg = c.git_add },
     GitSignsChangeNr = { fg = c.aqua },
     GitSignsDeleteNr = { fg = c.git_delete },
-
-    GitSignsAddLn = { bg = c.diff_add },
-    GitSignsChangeLn = { bg = c.diff_change },
-    GitSignsDeleteLn = { bg = c.diff_delete },
-
-    GitSignsAddInline = { bg = "#254535" },
-    GitSignsChangeInline = { bg = "#254540" },
-    GitSignsDeleteInline = { bg = "#452528" },
-
+    GitSignsAddLn = { bg = c.diff_add_bg },
+    GitSignsChangeLn = { bg = c.diff_change_bg },
+    GitSignsDeleteLn = { bg = c.diff_delete_bg },
+    GitSignsAddInline = { bg = "#2d5540" },
+    GitSignsChangeInline = { bg = "#2d504a" },
+    GitSignsDeleteInline = { bg = "#552d30" },
+    GitSignsAddLnInline = { bg = "#2d5540" },
+    GitSignsChangeLnInline = { bg = "#2d504a" },
+    GitSignsDeleteLnInline = { bg = "#552d30" },
+    GitSignsDeleteVirtLn = { fg = c.git_delete, bg = c.diff_delete_bg },
+    GitSignsDeleteVirtLnInline = { bg = "#552d30" },
     GitSignsCurrentLineBlame = { fg = c.gray_dark, italic = true },
-
     GitSignsAddPreview = { fg = c.git_add },
     GitSignsDeletePreview = { fg = c.git_delete },
 
-    -- ============================================
-    -- WHICH-KEY
-    -- ============================================
-
-    WhichKey = { fg = c.sky },                                 -- Primary key color
-    WhichKeyGroup = { fg = c.purple },                         -- Group names
+    -- Which-key
+    WhichKey = { fg = c.sky },
+    WhichKeyGroup = { fg = c.purple },
     WhichKeySeparator = { fg = c.gray_dark },
-    WhichKeyDesc = { fg = c.fg },                              -- Descriptions
+    WhichKeyDesc = { fg = c.fg },
     WhichKeyValue = { fg = c.gray },
     WhichKeyFloat = { bg = c.bg_dark },
     WhichKeyBorder = { fg = c.border_light, bg = c.bg_dark },
     WhichKeyNormal = { bg = c.bg_dark },
 
-    -- ============================================
-    -- MINI.NVIM
-    -- ============================================
-
-    -- Mini.statusline
+    -- Mini
     MiniStatuslineDevinfo = { fg = c.fg, bg = c.bg_highlight },
     MiniStatuslineFileinfo = { fg = c.fg, bg = c.bg_highlight },
     MiniStatuslineFilename = { fg = c.fg, bg = c.bg_light },
@@ -141,8 +105,6 @@ function M.get(c, config)
     MiniStatuslineModeOther = { fg = c.bg, bg = c.teal, bold = true },
     MiniStatuslineModeReplace = { fg = c.bg, bg = c.red, bold = true },
     MiniStatuslineModeVisual = { fg = c.bg, bg = c.purple, bold = true },
-
-    -- Mini.tabline
     MiniTablineCurrent = { fg = c.fg, bg = c.bg, bold = true },
     MiniTablineFill = { bg = c.bg_light },
     MiniTablineHidden = { fg = c.gray, bg = c.bg_light },
@@ -151,25 +113,15 @@ function M.get(c, config)
     MiniTablineModifiedVisible = { fg = c.git_change, bg = c.bg_light },
     MiniTablineTabpagesection = { fg = c.fg, bg = c.bg_highlight },
     MiniTablineVisible = { fg = c.fg, bg = c.bg_light },
-
-    -- Mini.indentscope
     MiniIndentscopeSymbol = { fg = c.blue },
     MiniIndentscopeSymbolOff = { fg = c.gray_dark },
-
-    -- Mini.cursorword
     MiniCursorword = { bg = c.word_highlight },
     MiniCursorwordCurrent = { bg = c.word_highlight },
-
-    -- Mini.surround
     MiniSurround = { fg = c.bg, bg = c.orange },
-
-    -- Mini.jump
     MiniJump = { fg = c.bg, bg = c.yellow, bold = true },
     MiniJump2dSpot = { fg = c.red, bold = true },
     MiniJump2dSpotAhead = { fg = c.teal },
     MiniJump2dSpotUnique = { fg = c.orange, bold = true },
-
-    -- Mini.files
     MiniFilesDirectory = { fg = c.blue },
     MiniFilesFile = { fg = c.fg },
     MiniFilesNormal = { fg = c.fg, bg = c.bg_dark },
@@ -177,8 +129,6 @@ function M.get(c, config)
     MiniFilesCursorLine = { bg = c.bg_highlight },
     MiniFilesTitle = { fg = c.green, bold = true },
     MiniFilesTitleFocused = { fg = c.green, bold = true },
-
-    -- Mini.pick
     MiniPickBorder = { fg = c.border_light, bg = c.bg_dark },
     MiniPickBorderBusy = { fg = c.yellow },
     MiniPickBorderText = { fg = c.green, bold = true },
@@ -193,12 +143,9 @@ function M.get(c, config)
     MiniPickPreviewRegion = { bg = c.bg_visual },
     MiniPickPrompt = { fg = c.green },
 
-    -- ============================================
-    -- INDENT-BLANKLINE
-    -- ============================================
-
-    IblIndent = { fg = c.indent_guide },                       -- editorIndentGuide.background -> #1a1e23
-    IblScope = { fg = c.indent_guide_active },                 -- editorIndentGuide.activeBackground -> #242931
+    -- Indent-blankline
+    IblIndent = { fg = c.indent_guide },
+    IblScope = { fg = c.indent_guide_active },
     IblWhitespace = { fg = c.whitespace },
     IndentBlanklineChar = { fg = c.indent_guide },
     IndentBlanklineContextChar = { fg = c.indent_guide_active },
@@ -206,22 +153,17 @@ function M.get(c, config)
     IndentBlanklineSpaceChar = { fg = c.whitespace },
     IndentBlanklineSpaceCharBlankline = { fg = c.whitespace },
 
-    -- ============================================
-    -- BLINK.CMP (Completion)
-    -- ============================================
-
+    -- Blink.cmp
     BlinkCmpMenu = { fg = c.fg, bg = c.bg_dark },
     BlinkCmpMenuBorder = { fg = c.border_light, bg = c.bg_dark },
-    BlinkCmpMenuSelection = { bg = c.pmenu_sel },              -- editorSuggestWidget.selectedBackground -> #7ddac544
+    BlinkCmpMenuSelection = { bg = c.pmenu_sel },
     BlinkCmpScrollBarThumb = { bg = c.gray_dark },
     BlinkCmpScrollBarGutter = { bg = c.bg_dark },
-
     BlinkCmpLabel = { fg = c.fg },
     BlinkCmpLabelDeprecated = { fg = c.gray, strikethrough = true },
-    BlinkCmpLabelMatch = { fg = c.pmenu_match, bold = true },  -- editorSuggestWidget.highlightForeground -> #78dba9
+    BlinkCmpLabelMatch = { fg = c.pmenu_match, bold = true },
     BlinkCmpLabelDetail = { fg = c.gray },
     BlinkCmpLabelDescription = { fg = c.gray },
-
     BlinkCmpKind = { fg = c.purple },
     BlinkCmpKindClass = { fg = c.yellow },
     BlinkCmpKindColor = { fg = c.orange },
@@ -248,7 +190,6 @@ function M.get(c, config)
     BlinkCmpKindUnit = { fg = c.blue },
     BlinkCmpKindValue = { fg = c.orange },
     BlinkCmpKindVariable = { fg = c.blue },
-
     BlinkCmpSource = { fg = c.gray },
     BlinkCmpGhostText = { fg = c.gray_dark },
     BlinkCmpDoc = { fg = c.fg, bg = c.bg },
@@ -258,10 +199,7 @@ function M.get(c, config)
     BlinkCmpSignatureHelpBorder = { fg = c.border_light, bg = c.bg },
     BlinkCmpSignatureHelpActiveParameter = { fg = c.orange, bold = true },
 
-    -- ============================================
-    -- NVIM-CMP (Alternative completion)
-    -- ============================================
-
+    -- nvim-cmp
     CmpItemAbbrMatch = { fg = c.pmenu_match, bold = true },
     CmpItemAbbrMatchFuzzy = { fg = c.pmenu_match, bold = true },
     CmpItemAbbrDeprecated = { fg = c.gray, strikethrough = true },
@@ -292,19 +230,13 @@ function M.get(c, config)
     CmpItemKindValue = { fg = c.orange },
     CmpItemKindVariable = { fg = c.blue },
 
-    -- ============================================
-    -- FLASH.NVIM
-    -- ============================================
-
+    -- Flash
     FlashBackdrop = { fg = c.gray_dark },
     FlashMatch = { fg = c.fg, bg = c.bg_visual },
     FlashCurrent = { fg = c.bg, bg = c.green },
     FlashLabel = { fg = c.bg, bg = c.red, bold = true },
 
-    -- ============================================
-    -- TROUBLE.NVIM
-    -- ============================================
-
+    -- Trouble
     TroubleNormal = { fg = c.fg, bg = c.bg_dark },
     TroubleText = { fg = c.fg },
     TroubleCount = { fg = c.purple, bg = c.bg_highlight },
@@ -319,10 +251,7 @@ function M.get(c, config)
     TroubleCode = { fg = c.gray },
     TroubleSource = { fg = c.gray, italic = true },
 
-    -- ============================================
-    -- TODO-COMMENTS
-    -- ============================================
-
+    -- Todo-comments
     TodoBgFIX = { fg = c.bg, bg = c.red, bold = true },
     TodoBgHACK = { fg = c.bg, bg = c.orange, bold = true },
     TodoBgNOTE = { fg = c.bg, bg = c.info, bold = true },
@@ -342,10 +271,7 @@ function M.get(c, config)
     TodoSignTODO = { fg = c.yellow },
     TodoSignWARN = { fg = c.warning },
 
-    -- ============================================
-    -- DASHBOARD / ALPHA
-    -- ============================================
-
+    -- Dashboard / Alpha
     DashboardShortCut = { fg = c.teal },
     DashboardHeader = { fg = c.blue },
     DashboardCenter = { fg = c.purple },
@@ -353,17 +279,13 @@ function M.get(c, config)
     DashboardKey = { fg = c.orange },
     DashboardDesc = { fg = c.fg },
     DashboardIcon = { fg = c.blue },
-
     AlphaShortcut = { fg = c.teal },
     AlphaHeader = { fg = c.blue },
     AlphaHeaderLabel = { fg = c.orange },
     AlphaFooter = { fg = c.gray, italic = true },
     AlphaButtons = { fg = c.purple },
 
-    -- ============================================
-    -- NVIM-TREE
-    -- ============================================
-
+    -- nvim-tree
     NvimTreeNormal = { fg = c.fg, bg = c.bg_dark },
     NvimTreeNormalNC = { fg = c.fg, bg = c.bg_dark },
     NvimTreeRootFolder = { fg = c.fg, bold = true },
@@ -382,10 +304,7 @@ function M.get(c, config)
     NvimTreeIndentMarker = { fg = c.indent_guide },
     NvimTreeWinSeparator = { fg = c.bg_dark, bg = c.bg_dark },
 
-    -- ============================================
-    -- BUFFERLINE
-    -- ============================================
-
+    -- Bufferline
     BufferLineFill = { bg = c.bg_light },
     BufferLineBackground = { fg = c.fg, bg = c.bg_light },
     BufferLineBufferVisible = { fg = c.fg, bg = c.bg_light },
@@ -397,7 +316,7 @@ function M.get(c, config)
     BufferLineSeparator = { fg = c.bg_light, bg = c.bg_light },
     BufferLineSeparatorVisible = { fg = c.bg_light, bg = c.bg_light },
     BufferLineSeparatorSelected = { fg = c.bg, bg = c.bg },
-    BufferLineIndicatorSelected = { fg = c.border_active },  -- tab.activeBorder -> #70a5eb
+    BufferLineIndicatorSelected = { fg = c.border_active },
     BufferLineIndicatorVisible = { fg = c.bg_light },
     BufferLineModified = { fg = c.git_change },
     BufferLineModifiedSelected = { fg = c.git_change },
@@ -406,11 +325,7 @@ function M.get(c, config)
     BufferLineCloseButtonSelected = { fg = c.red },
     BufferLineCloseButtonVisible = { fg = c.gray },
 
-    -- ============================================
-    -- LUALINE
-    -- ============================================
-
-    -- Uses Vim's StatusLine groups by default, but can be customized
+    -- Lualine
     lualine_a_normal = { fg = c.bg, bg = c.blue, bold = true },
     lualine_a_insert = { fg = c.bg, bg = c.green, bold = true },
     lualine_a_visual = { fg = c.bg, bg = c.purple, bold = true },
@@ -419,10 +334,7 @@ function M.get(c, config)
     lualine_b_normal = { fg = c.fg, bg = c.bg_highlight },
     lualine_c_normal = { fg = c.fg, bg = c.bg_light },
 
-    -- ============================================
-    -- MASON
-    -- ============================================
-
+    -- Mason
     MasonNormal = { fg = c.fg, bg = c.bg_dark },
     MasonHeader = { fg = c.bg, bg = c.green, bold = true },
     MasonHeaderSecondary = { fg = c.bg, bg = c.blue, bold = true },
@@ -435,10 +347,7 @@ function M.get(c, config)
     MasonMutedBlock = { fg = c.bg, bg = c.gray },
     MasonError = { fg = c.error },
 
-    -- ============================================
-    -- LAZY.NVIM
-    -- ============================================
-
+    -- Lazy
     LazyButton = { fg = c.fg, bg = c.bg_highlight },
     LazyButtonActive = { fg = c.fg_light, bg = c.pmenu_sel, bold = true },
     LazyComment = { fg = c.gray },
@@ -469,11 +378,209 @@ function M.get(c, config)
     LazyUrl = { fg = c.link, underline = true },
     LazyValue = { fg = c.green },
 
-    -- ============================================
-    -- HLARGS.NVIM (Parameter highlighting)
-    -- ============================================
-
+    -- Hlargs
     Hlargs = { fg = c.teal, italic = true },
+
+    -- FZF-lua
+    FzfLuaNormal = { fg = c.fg, bg = c.bg_dark },
+    FzfLuaBorder = { fg = c.border_light, bg = c.bg_dark },
+    FzfLuaTitle = { fg = c.green, bold = true },
+    FzfLuaPreviewNormal = { fg = c.fg, bg = c.bg_dark },
+    FzfLuaPreviewBorder = { fg = c.border_light, bg = c.bg_dark },
+    FzfLuaPreviewTitle = { fg = c.blue, bold = true },
+    FzfLuaCursor = { fg = c.bg, bg = c.green },
+    FzfLuaCursorLine = { bg = c.bg_highlight },
+    FzfLuaCursorLineNr = { fg = c.line_nr_active, bold = true },
+    FzfLuaSearch = { fg = c.bg, bg = c.green },
+    FzfLuaScrollBorderEmpty = { fg = c.bg_highlight },
+    FzfLuaScrollBorderFull = { fg = c.green },
+    FzfLuaScrollFloatEmpty = { bg = c.bg_highlight },
+    FzfLuaScrollFloatFull = { bg = c.green },
+    FzfLuaHelpNormal = { fg = c.fg, bg = c.bg_dark },
+    FzfLuaHelpBorder = { fg = c.border_light, bg = c.bg_dark },
+    FzfLuaHeaderBind = { fg = c.blue },
+    FzfLuaHeaderText = { fg = c.purple },
+    FzfLuaPathColNr = { fg = c.yellow },
+    FzfLuaPathLineNr = { fg = c.green },
+    FzfLuaBufName = { fg = c.purple },
+    FzfLuaBufNr = { fg = c.yellow },
+    FzfLuaBufFlagCur = { fg = c.green },
+    FzfLuaBufFlagAlt = { fg = c.blue },
+    FzfLuaTabTitle = { fg = c.green, bold = true },
+    FzfLuaTabMarker = { fg = c.green },
+    FzfLuaLiveSym = { fg = c.yellow },
+
+    -- Diffview
+    DiffviewNormal = { fg = c.fg, bg = c.bg_dark },
+    DiffviewFilePanelTitle = { fg = c.blue, bold = true },
+    DiffviewFilePanelCounter = { fg = c.purple },
+    DiffviewFilePanelFileName = { fg = c.fg },
+    DiffviewFilePanelPath = { fg = c.gray },
+    DiffviewFilePanelRootPath = { fg = c.gray },
+    DiffviewFilePanelInsertions = { fg = c.git_add },
+    DiffviewFilePanelDeletions = { fg = c.git_delete },
+    DiffviewFilePanelConflicts = { fg = c.git_conflict },
+    DiffviewFolderName = { fg = c.blue },
+    DiffviewFolderSign = { fg = c.blue },
+    DiffviewStatusLine = { fg = c.fg, bg = c.bg_light },
+    DiffviewStatusLineNC = { fg = c.fg_dark, bg = c.bg_dark },
+    DiffviewStatusAdded = { fg = c.git_add },
+    DiffviewStatusModified = { fg = c.git_change },
+    DiffviewStatusRenamed = { fg = c.aqua },
+    DiffviewStatusCopied = { fg = c.aqua },
+    DiffviewStatusTypeChange = { fg = c.yellow },
+    DiffviewStatusUnmerged = { fg = c.git_conflict },
+    DiffviewStatusUnknown = { fg = c.gray },
+    DiffviewStatusDeleted = { fg = c.git_delete },
+    DiffviewStatusBroken = { fg = c.error },
+    DiffviewStatusIgnored = { fg = c.git_ignored },
+    DiffviewDim1 = { fg = c.gray },
+    DiffviewReference = { fg = c.purple },
+    DiffviewPrimary = { fg = c.blue },
+    DiffviewSecondary = { fg = c.green },
+    DiffviewDiffAdd = { bg = c.diff_add_bg },
+    DiffviewDiffAddAsDelete = { bg = c.diff_delete_bg },
+    DiffviewDiffChange = { bg = c.diff_change_bg },
+    DiffviewDiffDelete = { bg = c.diff_delete_bg },
+    DiffviewDiffText = { bg = c.diff_text_bg },
+    DiffviewDiffAddText = { bg = "#2d5540" },
+    DiffviewDiffDeleteText = { bg = "#552d30" },
+
+    -- Neogit
+    NeogitBranch = { fg = c.purple },
+    NeogitRemote = { fg = c.green },
+    NeogitHunkHeader = { fg = c.fg, bg = c.bg_highlight },
+    NeogitHunkHeaderHighlight = { fg = c.fg, bg = c.bg_visual },
+    NeogitDiffContext = { bg = c.bg },
+    NeogitDiffContextHighlight = { bg = c.bg_light },
+    NeogitDiffAdd = { fg = c.git_add, bg = c.diff_add_bg },
+    NeogitDiffAddHighlight = { fg = c.git_add, bg = "#2d5540" },
+    NeogitDiffDelete = { fg = c.git_delete, bg = c.diff_delete_bg },
+    NeogitDiffDeleteHighlight = { fg = c.git_delete, bg = "#552d30" },
+    NeogitNotificationInfo = { fg = c.info },
+    NeogitNotificationWarning = { fg = c.warning },
+    NeogitNotificationError = { fg = c.error },
+    NeogitCommitViewHeader = { fg = c.blue, bg = c.bg_highlight, bold = true },
+    NeogitFilePath = { fg = c.blue },
+    NeogitFold = { fg = c.gray_dark },
+    NeogitGraphAuthor = { fg = c.orange },
+    NeogitGraphRed = { fg = c.red },
+    NeogitGraphWhite = { fg = c.fg },
+    NeogitGraphYellow = { fg = c.yellow },
+    NeogitGraphGreen = { fg = c.green },
+    NeogitGraphCyan = { fg = c.cyan },
+    NeogitGraphBlue = { fg = c.blue },
+    NeogitGraphPurple = { fg = c.purple },
+    NeogitGraphGray = { fg = c.gray },
+    NeogitGraphOrange = { fg = c.orange },
+    NeogitGraphBoldRed = { fg = c.red, bold = true },
+    NeogitGraphBoldWhite = { fg = c.fg, bold = true },
+    NeogitGraphBoldYellow = { fg = c.yellow, bold = true },
+    NeogitGraphBoldGreen = { fg = c.green, bold = true },
+    NeogitGraphBoldCyan = { fg = c.cyan, bold = true },
+    NeogitGraphBoldBlue = { fg = c.blue, bold = true },
+    NeogitGraphBoldPurple = { fg = c.purple, bold = true },
+    NeogitGraphBoldGray = { fg = c.gray, bold = true },
+    NeogitSignatureGood = { fg = c.green },
+    NeogitSignatureBad = { fg = c.red },
+    NeogitSignatureMissing = { fg = c.warning },
+    NeogitSignatureNone = { fg = c.gray },
+    NeogitSignatureGoodUnknown = { fg = c.aqua },
+    NeogitSignatureGoodExpired = { fg = c.yellow },
+    NeogitSignatureGoodExpiredKey = { fg = c.yellow },
+    NeogitSignatureGoodRevokedKey = { fg = c.red },
+    NeogitCherryPick = { fg = c.purple },
+    NeogitRevert = { fg = c.red },
+    NeogitSectionHeader = { fg = c.purple, bold = true },
+    NeogitUntrackedfiles = { fg = c.git_untracked },
+    NeogitUnstagedchanges = { fg = c.git_change },
+    NeogitUnmergedchanges = { fg = c.git_conflict },
+    NeogitUnpulledchanges = { fg = c.blue },
+    NeogitRecentcommits = { fg = c.fg },
+    NeogitStagedchanges = { fg = c.green },
+    NeogitStashes = { fg = c.purple },
+    NeogitRebasing = { fg = c.orange },
+
+    -- Octo
+    OctoEditable = { bg = c.bg_light },
+    OctoBubble = { fg = c.fg, bg = c.bg_highlight },
+    OctoGreen = { fg = c.green },
+    OctoRed = { fg = c.red },
+    OctoPurple = { fg = c.purple },
+    OctoYellow = { fg = c.yellow },
+    OctoBlue = { fg = c.blue },
+    OctoGrey = { fg = c.gray },
+
+    -- Copilot / Codeium
+    CopilotSuggestion = { fg = c.gray_dark, italic = true },
+    CopilotAnnotation = { fg = c.gray_dark, italic = true },
+    CodeiumSuggestion = { fg = c.gray_dark, italic = true },
+
+    -- Spectre
+    SpectreHeader = { fg = c.purple, bold = true },
+    SpectreBody = { fg = c.fg },
+    SpectreFile = { fg = c.blue },
+    SpectreDir = { fg = c.gray },
+    SpectreSearch = { fg = c.bg, bg = c.red },
+    SpectreBorder = { fg = c.border_light },
+    SpectreReplace = { fg = c.bg, bg = c.green },
+
+    -- Scrollbar
+    ScrollbarHandle = { bg = c.bg_highlight },
+    ScrollbarSearchHandle = { fg = c.yellow, bg = c.bg_highlight },
+    ScrollbarSearch = { fg = c.yellow },
+    ScrollbarErrorHandle = { fg = c.error, bg = c.bg_highlight },
+    ScrollbarError = { fg = c.error },
+    ScrollbarWarnHandle = { fg = c.warning, bg = c.bg_highlight },
+    ScrollbarWarn = { fg = c.warning },
+    ScrollbarInfoHandle = { fg = c.info, bg = c.bg_highlight },
+    ScrollbarInfo = { fg = c.info },
+    ScrollbarHintHandle = { fg = c.hint, bg = c.bg_highlight },
+    ScrollbarHint = { fg = c.hint },
+    ScrollbarMiscHandle = { fg = c.purple, bg = c.bg_highlight },
+    ScrollbarMisc = { fg = c.purple },
+    ScrollbarGitAdd = { fg = c.git_add },
+    ScrollbarGitChange = { fg = c.aqua },
+    ScrollbarGitDelete = { fg = c.git_delete },
+
+    -- Overseer
+    OverseerPENDING = { fg = c.gray },
+    OverseerRUNNING = { fg = c.blue },
+    OverseerSUCCESS = { fg = c.green },
+    OverseerCANCELED = { fg = c.yellow },
+    OverseerFAILURE = { fg = c.red },
+    OverseerTask = { fg = c.fg },
+    OverseerTaskBorder = { fg = c.border_light },
+    OverseerOutput = { fg = c.fg },
+    OverseerComponent = { fg = c.purple },
+    OverseerField = { fg = c.cyan },
+
+    -- render-markdown
+    RenderMarkdownH1Bg = { bg = "#252a35" },
+    RenderMarkdownH2Bg = { bg = "#252530" },
+    RenderMarkdownH3Bg = { bg = "#252830" },
+    RenderMarkdownH4Bg = { bg = "#2a2530" },
+    RenderMarkdownH5Bg = { bg = "#2a2a30" },
+    RenderMarkdownH6Bg = { bg = "#252a2a" },
+    RenderMarkdownCode = { bg = c.bg_light },
+    RenderMarkdownCodeInline = { bg = c.bg_light },
+    RenderMarkdownBullet = { fg = c.blue },
+    RenderMarkdownQuote = { fg = c.gray, italic = true },
+    RenderMarkdownDash = { fg = c.border_light },
+    RenderMarkdownLink = { fg = c.link, underline = true },
+    RenderMarkdownSign = { fg = c.gray },
+    RenderMarkdownMath = { fg = c.blue },
+    RenderMarkdownWikiLink = { fg = c.purple, underline = true },
+    RenderMarkdownUnchecked = { fg = c.gray },
+    RenderMarkdownChecked = { fg = c.green },
+    RenderMarkdownTableHead = { fg = c.blue, bold = true },
+    RenderMarkdownTableRow = { fg = c.fg },
+    RenderMarkdownTableFill = { fg = c.gray_dark },
+    RenderMarkdownSuccess = { fg = c.green },
+    RenderMarkdownInfo = { fg = c.info },
+    RenderMarkdownHint = { fg = c.hint },
+    RenderMarkdownWarn = { fg = c.warning },
+    RenderMarkdownError = { fg = c.error },
   }
 end
 

@@ -104,21 +104,21 @@ require("unknown-decay").setup({
 
 ## Supported Plugins
 
-- Telescope
-- Neo-tree
-- Gitsigns
-- Which-key
-- Mini.nvim
-- Blink.cmp / nvim-cmp
-- Indent-blankline
-- Flash.nvim
-- Trouble.nvim
-- Todo-comments
-- Lazy.nvim
-- Mason
-- Bufferline
-- Lualine
-- And more...
+| Category | Plugins |
+|----------|---------|
+| Fuzzy Finders | Telescope, FZF-lua |
+| File Explorers | Neo-tree, nvim-tree |
+| Git | Gitsigns, Diffview, Neogit, Octo |
+| Completion | Blink.cmp, nvim-cmp, Copilot, Codeium |
+| UI | Which-key, Noice, Notify, Snacks, Dashboard/Alpha |
+| Navigation | Flash, Leap, Hop, Aerial |
+| Debugging | nvim-dap, nvim-dap-ui |
+| Statusline | Lualine, Mini.statusline |
+| Bufferline | Bufferline, Mini.tabline |
+| Diagnostics | Trouble, Todo-comments |
+| Editing | Mini.nvim, Indent-blankline, Rainbow Delimiters |
+| Utilities | Lazy, Mason, Spectre, Overseer, Scrollbar |
+| Markdown | render-markdown |
 
 ## Utilities
 

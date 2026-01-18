@@ -1,7 +1,3 @@
--- unknown-decay/groups/treesitter.lua
--- Treesitter highlight captures mapped from VS Code decay.json tokenColors
--- This file contains 200+ captures for comprehensive syntax highlighting
-
 local M = {}
 
 function M.get(c, config)
@@ -10,236 +6,153 @@ function M.get(c, config)
   local italic_keywords = config.is_italic("keywords")
 
   return {
-    -- ============================================
-    -- IDENTIFIERS
-    -- ============================================
-
     -- Variables
-    ["@variable"] = { fg = c.fg_light },                     -- variable -> #dee1e6
-    ["@variable.builtin"] = { fg = c.purple },               -- variable.language (self, this) -> purple
-    ["@variable.parameter"] = { fg = c.blue, italic = italic_parameters }, -- variable.parameter -> #70a5eb
+    ["@variable"] = { fg = c.fg_light },
+    ["@variable.builtin"] = { fg = c.purple },
+    ["@variable.parameter"] = { fg = c.blue, italic = italic_parameters },
     ["@variable.parameter.builtin"] = { fg = c.blue, italic = italic_parameters },
-    ["@variable.member"] = { fg = c.cyan },                  -- variable.other.property -> #74bee9
+    ["@variable.member"] = { fg = c.cyan },
 
-    -- ============================================
-    -- CONSTANTS
-    -- ============================================
+    -- Constants
+    ["@constant"] = { fg = c.purple },
+    ["@constant.builtin"] = { fg = c.orange },
+    ["@constant.macro"] = { fg = c.purple },
 
-    ["@constant"] = { fg = c.purple },                       -- constant -> #c68aee
-    ["@constant.builtin"] = { fg = c.orange },               -- constant.language -> #e9a180 (true, false, nil)
-    ["@constant.macro"] = { fg = c.purple },                 -- constant.other.macro
-
-    -- ============================================
-    -- MODULES / NAMESPACES
-    -- ============================================
-
-    ["@module"] = { fg = c.fg },                             -- entity.name.namespace -> #b6beca
+    -- Modules
+    ["@module"] = { fg = c.fg },
     ["@module.builtin"] = { fg = c.yellow },
-    ["@label"] = { fg = c.purple },                          -- entity.name.label
+    ["@label"] = { fg = c.purple },
 
-    -- ============================================
-    -- STRINGS
-    -- ============================================
-
-    ["@string"] = { fg = c.green },                          -- string -> #78dba9
-    ["@string.documentation"] = { fg = c.green },            -- string.documentation
-    ["@string.regexp"] = { fg = c.teal },                    -- string.regexp -> #56b6c2
-    ["@string.escape"] = { fg = c.teal },                    -- constant.character.escape -> #56b6c2
-    ["@string.special"] = { fg = c.teal },                   -- string.special
-    ["@string.special.symbol"] = { fg = c.teal },            -- constant.other.symbol -> #56b6c2
+    -- Strings
+    ["@string"] = { fg = c.green },
+    ["@string.documentation"] = { fg = c.green },
+    ["@string.regexp"] = { fg = c.teal },
+    ["@string.escape"] = { fg = c.teal },
+    ["@string.special"] = { fg = c.teal },
+    ["@string.special.symbol"] = { fg = c.teal },
     ["@string.special.path"] = { fg = c.green },
     ["@string.special.url"] = { fg = c.link, underline = true },
 
-    -- ============================================
-    -- CHARACTERS
-    -- ============================================
+    -- Characters
+    ["@character"] = { fg = c.green },
+    ["@character.special"] = { fg = c.blue },
 
-    ["@character"] = { fg = c.green },                       -- string.character
-    ["@character.special"] = { fg = c.blue },                -- constant.character.entity -> #70a5eb
-
-    -- ============================================
-    -- NUMBERS
-    -- ============================================
-
-    ["@number"] = { fg = c.red },                            -- constant.numeric -> #e05f65
+    -- Numbers
+    ["@number"] = { fg = c.red },
     ["@number.float"] = { fg = c.red },
 
-    -- ============================================
-    -- BOOLEANS
-    -- ============================================
+    -- Booleans
+    ["@boolean"] = { fg = c.teal },
 
-    ["@boolean"] = { fg = c.teal },                          -- constant.language -> #56b6c2
-
-    -- ============================================
-    -- FUNCTIONS
-    -- ============================================
-
-    ["@function"] = { fg = c.sky },                          -- entity.name.function -> #61afef
-    ["@function.builtin"] = { fg = c.yellow },               -- support.function (super, etc.) -> yellow
-    ["@function.call"] = { fg = c.sky },                     -- meta.function-call -> #61afef
-    ["@function.macro"] = { fg = c.purple },                 -- entity.name.function.preprocessor
-    ["@function.method"] = { fg = c.sky },                   -- entity.name.function.method
+    -- Functions
+    ["@function"] = { fg = c.sky },
+    ["@function.builtin"] = { fg = c.yellow },
+    ["@function.call"] = { fg = c.sky },
+    ["@function.macro"] = { fg = c.purple },
+    ["@function.method"] = { fg = c.sky },
     ["@function.method.call"] = { fg = c.sky },
 
-    -- ============================================
-    -- METHODS (Aliases)
-    -- ============================================
-
-    ["@method"] = { fg = c.sky },                            -- entity.name.function
+    -- Methods (aliases)
+    ["@method"] = { fg = c.sky },
     ["@method.call"] = { fg = c.sky },
 
-    -- ============================================
-    -- CONSTRUCTORS
-    -- ============================================
+    -- Constructors
+    ["@constructor"] = { fg = c.teal },
 
-    ["@constructor"] = { fg = c.teal },                      -- __init__, __new__ etc. -> teal
+    -- Operators
+    ["@operator"] = { fg = c.teal },
 
-    -- ============================================
-    -- OPERATORS
-    -- ============================================
-
-    -- keyword.operator (general) -> #b6beca
-    -- But arithmetic/comparison/assignment operators -> #56b6c2
-    ["@operator"] = { fg = c.teal },                         -- keyword.operator.arithmetic/comparison -> #56b6c2
-
-    -- ============================================
-    -- KEYWORDS
-    -- ============================================
-
-    ["@keyword"] = { fg = c.purple, italic = italic_keywords }, -- keyword -> #c68aee
-    ["@keyword.coroutine"] = { fg = c.purple },              -- keyword.control.flow
-    ["@keyword.function"] = { fg = c.purple },               -- storage.type.function -> #c68aee
-    ["@keyword.operator"] = { fg = c.teal },                 -- keyword.operator.logical -> #56b6c2
-    ["@keyword.import"] = { fg = c.purple },                 -- keyword.control.import -> #c68aee
-    ["@keyword.type"] = { fg = c.purple },                   -- keyword.type
-    ["@keyword.modifier"] = { fg = c.purple },               -- storage.modifier
-    ["@keyword.repeat"] = { fg = c.purple, italic = italic_keywords }, -- keyword.control.loop
-    ["@keyword.return"] = { fg = c.purple },                 -- keyword.control.flow.return
-    ["@keyword.debug"] = { fg = c.purple },                  -- keyword.other.debugger
-    ["@keyword.exception"] = { fg = c.purple },              -- keyword.control.exception
-    ["@keyword.conditional"] = { fg = c.purple, italic = italic_keywords }, -- keyword.control.conditional
-    ["@keyword.conditional.ternary"] = { fg = c.purple },    -- keyword.operator.ternary
-    ["@keyword.directive"] = { fg = c.purple },              -- keyword.directive
+    -- Keywords
+    ["@keyword"] = { fg = c.purple, italic = italic_keywords },
+    ["@keyword.coroutine"] = { fg = c.purple },
+    ["@keyword.function"] = { fg = c.purple },
+    ["@keyword.operator"] = { fg = c.teal },
+    ["@keyword.import"] = { fg = c.purple },
+    ["@keyword.type"] = { fg = c.purple },
+    ["@keyword.modifier"] = { fg = c.purple },
+    ["@keyword.repeat"] = { fg = c.purple, italic = italic_keywords },
+    ["@keyword.return"] = { fg = c.purple },
+    ["@keyword.debug"] = { fg = c.purple },
+    ["@keyword.exception"] = { fg = c.purple },
+    ["@keyword.conditional"] = { fg = c.purple, italic = italic_keywords },
+    ["@keyword.conditional.ternary"] = { fg = c.purple },
+    ["@keyword.directive"] = { fg = c.purple },
     ["@keyword.directive.define"] = { fg = c.purple },
 
-    -- ============================================
-    -- PUNCTUATION
-    -- ============================================
+    -- Punctuation
+    ["@punctuation.delimiter"] = { fg = c.fg },
+    ["@punctuation.bracket"] = { fg = c.cyan },
+    ["@punctuation.special"] = { fg = c.red },
 
-    ["@punctuation.delimiter"] = { fg = c.fg },              -- punctuation.separator -> #b6beca
-    ["@punctuation.bracket"] = { fg = c.cyan },              -- meta.brace -> #74bee9
-    ["@punctuation.special"] = { fg = c.red },               -- punctuation.definition.template-expression -> #e05f65
-
-    -- ============================================
-    -- COMMENTS
-    -- ============================================
-
-    ["@comment"] = { fg = c.gray, italic = italic_comments }, -- comment -> #7f848e
+    -- Comments
+    ["@comment"] = { fg = c.gray, italic = italic_comments },
     ["@comment.documentation"] = { fg = c.gray, italic = italic_comments },
     ["@comment.error"] = { fg = c.error, italic = italic_comments },
     ["@comment.warning"] = { fg = c.warning, italic = italic_comments },
     ["@comment.todo"] = { fg = c.orange, bold = true },
     ["@comment.note"] = { fg = c.info, italic = italic_comments },
 
-    -- ============================================
-    -- MARKUP (Markdown, etc.)
-    -- ============================================
-
-    ["@markup.strong"] = { fg = c.orange, bold = true },     -- markup.bold -> #e9a180
-    ["@markup.italic"] = { fg = c.red, italic = true },      -- markup.italic -> #e05f65
+    -- Markup
+    ["@markup.strong"] = { fg = c.orange, bold = true },
+    ["@markup.italic"] = { fg = c.red, italic = true },
     ["@markup.strikethrough"] = { strikethrough = true },
     ["@markup.underline"] = { underline = true },
-
-    ["@markup.heading"] = { fg = c.blue, bold = true },      -- markup.heading -> #70a5eb
+    ["@markup.heading"] = { fg = c.blue, bold = true },
     ["@markup.heading.1"] = { fg = c.blue, bold = true },
     ["@markup.heading.2"] = { fg = c.blue, bold = true },
     ["@markup.heading.3"] = { fg = c.blue, bold = true },
     ["@markup.heading.4"] = { fg = c.blue, bold = true },
     ["@markup.heading.5"] = { fg = c.blue, bold = true },
     ["@markup.heading.6"] = { fg = c.blue, bold = true },
-
     ["@markup.quote"] = { fg = c.gray, italic = true },
     ["@markup.math"] = { fg = c.blue },
-
-    ["@markup.link"] = { fg = c.sky },                       -- markup.underline.link
+    ["@markup.link"] = { fg = c.sky },
     ["@markup.link.label"] = { fg = c.blue },
     ["@markup.link.url"] = { fg = c.link, underline = true },
-
-    ["@markup.raw"] = { fg = c.yellow },                     -- markup.inline.raw -> #f1cf8a
+    ["@markup.raw"] = { fg = c.yellow },
     ["@markup.raw.block"] = { fg = c.yellow },
-
-    ["@markup.list"] = { fg = c.blue },                      -- punctuation.definition.list -> #70a5eb
+    ["@markup.list"] = { fg = c.blue },
     ["@markup.list.checked"] = { fg = c.green },
     ["@markup.list.unchecked"] = { fg = c.gray },
 
-    -- ============================================
-    -- DIFF
-    -- ============================================
+    -- Diff
+    ["@diff.plus"] = { fg = c.git_add },
+    ["@diff.minus"] = { fg = c.git_delete },
+    ["@diff.delta"] = { fg = c.git_change },
 
-    ["@diff.plus"] = { fg = c.git_add },                     -- markup.inserted -> #78dba9
-    ["@diff.minus"] = { fg = c.git_delete },                 -- markup.deleted -> #e05f65
-    ["@diff.delta"] = { fg = c.git_change },                 -- markup.changed -> #f1cf8a
-
-    -- ============================================
-    -- TAGS (HTML, XML, JSX, etc.)
-    -- ============================================
-
-    ["@tag"] = { fg = c.red },                               -- entity.name.tag -> #e05f65
+    -- Tags
+    ["@tag"] = { fg = c.red },
     ["@tag.builtin"] = { fg = c.red },
-    ["@tag.attribute"] = { fg = c.blue },                    -- entity.other.attribute-name -> #70a5eb
-    ["@tag.delimiter"] = { fg = c.fg },                      -- punctuation.definition.tag
+    ["@tag.attribute"] = { fg = c.blue },
+    ["@tag.delimiter"] = { fg = c.fg },
 
-    -- ============================================
-    -- TYPES
-    -- ============================================
-
-    ["@type"] = { fg = c.yellow },                           -- entity.name.type -> #f1cf8a
-    ["@type.builtin"] = { fg = c.fg },                       -- support.type.primitive -> #b6beca
+    -- Types
+    ["@type"] = { fg = c.yellow },
+    ["@type.builtin"] = { fg = c.fg },
     ["@type.definition"] = { fg = c.yellow },
-    ["@type.qualifier"] = { fg = c.purple },                 -- storage.modifier
+    ["@type.qualifier"] = { fg = c.purple },
 
-    -- ============================================
-    -- ATTRIBUTES / DECORATORS
-    -- ============================================
-
-    ["@attribute"] = { fg = c.teal },                        -- entity.other.attribute -> #56b6c2
+    -- Attributes
+    ["@attribute"] = { fg = c.teal },
     ["@attribute.builtin"] = { fg = c.teal },
 
-    -- ============================================
-    -- PROPERTIES
-    -- ============================================
+    -- Properties
+    ["@property"] = { fg = c.cyan },
 
-    ["@property"] = { fg = c.cyan },                         -- variable.other.property -> #74bee9
-
-    -- ============================================
-    -- NONE (No highlighting)
-    -- ============================================
-
+    -- None
     ["@none"] = {},
 
-    -- ============================================
-    -- MISCELLANEOUS
-    -- ============================================
-
+    -- Misc
     ["@conceal"] = { fg = c.gray_dark },
     ["@spell"] = {},
     ["@nospell"] = {},
 
-    -- ============================================
-    -- LANGUAGE-SPECIFIC INJECTIONS
-    -- ============================================
-
     -- Regex
-    ["@string.regexp"] = { fg = c.teal },
     ["@punctuation.bracket.regexp"] = { fg = c.teal },
     ["@operator.regexp"] = { fg = c.red },
     ["@character.special.regexp"] = { fg = c.blue },
 
-    -- ============================================
-    -- LEGACY TREESITTER GROUPS (backwards compat)
-    -- ============================================
-
-    -- These are older naming conventions that some parsers still use
+    -- Legacy treesitter groups
     TSVariable = { link = "@variable" },
     TSVariableBuiltin = { link = "@variable.builtin" },
     TSParameter = { link = "@variable.parameter" },

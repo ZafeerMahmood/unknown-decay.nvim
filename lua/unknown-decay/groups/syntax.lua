@@ -1,6 +1,3 @@
--- unknown-decay/groups/syntax.lua
--- Standard Vim syntax highlight groups mapped from VS Code decay.json tokenColors
-
 local M = {}
 
 function M.get(c, config)
@@ -8,99 +5,69 @@ function M.get(c, config)
   local italic_keywords = config.is_italic("keywords")
 
   return {
-    -- ============================================
     -- Comments
-    -- ============================================
-    Comment = { fg = c.gray, italic = italic_comments }, -- #7f848e (italic by default)
+    Comment = { fg = c.gray, italic = italic_comments },
 
-    -- ============================================
     -- Constants
-    -- ============================================
-    Constant = { fg = c.purple },           -- constant scope -> #c68aee
-    String = { fg = c.green },              -- string scope -> #78dba9
-    Character = { fg = c.green },           -- character constants
-    Number = { fg = c.red },                -- constant.numeric -> #e05f65
-    Float = { fg = c.red },                 -- floating point numbers
-    Boolean = { fg = c.teal },              -- true, false -> #56b6c2
+    Constant = { fg = c.purple },
+    String = { fg = c.green },
+    Character = { fg = c.green },
+    Number = { fg = c.red },
+    Float = { fg = c.red },
+    Boolean = { fg = c.teal },
 
-    -- ============================================
     -- Identifiers
-    -- ============================================
-    Identifier = { fg = c.fg_light },       -- variable scope -> #dee1e6
-    Function = { fg = c.sky },              -- entity.name.function -> #61afef
+    Identifier = { fg = c.fg_light },
+    Function = { fg = c.sky },
 
-    -- ============================================
     -- Statements
-    -- ============================================
-    Statement = { fg = c.purple },          -- keyword.control -> #c68aee
-    Conditional = { fg = c.purple, italic = italic_keywords }, -- if, then, else
-    Repeat = { fg = c.purple, italic = italic_keywords },      -- for, do, while
-    Label = { fg = c.purple },              -- case, default
-    Operator = { fg = c.fg },               -- operators (default foreground)
-    Keyword = { fg = c.purple },            -- keyword scope -> #c68aee
-    Exception = { fg = c.purple },          -- try, catch, throw
+    Statement = { fg = c.purple },
+    Conditional = { fg = c.purple, italic = italic_keywords },
+    Repeat = { fg = c.purple, italic = italic_keywords },
+    Label = { fg = c.purple },
+    Operator = { fg = c.fg },
+    Keyword = { fg = c.purple },
+    Exception = { fg = c.purple },
 
-    -- ============================================
     -- Preprocessor
-    -- ============================================
-    PreProc = { fg = c.purple },            -- preprocessor
-    Include = { fg = c.purple },            -- #include
-    Define = { fg = c.purple },             -- #define
-    Macro = { fg = c.purple },              -- macros
-    PreCondit = { fg = c.purple },          -- #if, #else, #endif
+    PreProc = { fg = c.purple },
+    Include = { fg = c.purple },
+    Define = { fg = c.purple },
+    Macro = { fg = c.purple },
+    PreCondit = { fg = c.purple },
 
-    -- ============================================
     -- Types
-    -- ============================================
-    Type = { fg = c.yellow },               -- entity.name.type -> #f1cf8a
-    StorageClass = { fg = c.purple },       -- storage scope -> #c68aee
-    Structure = { fg = c.yellow },          -- struct, union, enum
-    Typedef = { fg = c.yellow },            -- typedef
+    Type = { fg = c.yellow },
+    StorageClass = { fg = c.purple },
+    Structure = { fg = c.yellow },
+    Typedef = { fg = c.yellow },
 
-    -- ============================================
     -- Special
-    -- ============================================
-    Special = { fg = c.teal },              -- special characters
-    SpecialChar = { fg = c.teal },          -- escape sequences -> #56b6c2
-    Tag = { fg = c.red },                   -- entity.name.tag -> #e05f65
-    Delimiter = { fg = c.fg },              -- punctuation
-    SpecialComment = { fg = c.gray, italic = italic_comments }, -- special comments
-    Debug = { fg = c.orange },              -- debugging statements
+    Special = { fg = c.teal },
+    SpecialChar = { fg = c.teal },
+    Tag = { fg = c.red },
+    Delimiter = { fg = c.fg },
+    SpecialComment = { fg = c.gray, italic = italic_comments },
+    Debug = { fg = c.orange },
 
-    -- ============================================
     -- Underlined
-    -- ============================================
-    Underlined = { fg = c.link, underline = true }, -- textLink.foreground -> #70a5eb
+    Underlined = { fg = c.link, underline = true },
 
-    -- ============================================
     -- Ignore
-    -- ============================================
     Ignore = { fg = c.gray_dark },
 
-    -- ============================================
     -- Error
-    -- ============================================
-    Error = { fg = c.error },               -- #e05f65
+    Error = { fg = c.error },
 
-    -- ============================================
     -- Todo
-    -- ============================================
-    Todo = { fg = c.orange, bold = true },  -- TODO, FIXME, etc.
+    Todo = { fg = c.orange, bold = true },
 
-    -- ============================================
-    -- Additional Syntax Groups
-    -- ============================================
+    -- Additional
     Bold = { bold = true },
     Italic = { italic = true },
-
-    -- Added text (in diffs)
-    Added = { fg = c.git_add },             -- #78dba9
-    Changed = { fg = c.git_change },        -- #f1cf8a
-    Removed = { fg = c.git_delete },        -- #e05f65
-
-    -- ============================================
-    -- Language-specific syntax (fallback)
-    -- ============================================
+    Added = { fg = c.git_add },
+    Changed = { fg = c.git_change },
+    Removed = { fg = c.git_delete },
 
     -- C/C++
     cInclude = { fg = c.purple },
@@ -160,7 +127,7 @@ function M.get(c, config)
     gitcommitUnmergedFile = { fg = c.yellow },
     gitcommitFile = { fg = c.fg },
 
-    -- Diff (non-treesitter)
+    -- Diff
     diffAdded = { fg = c.git_add },
     diffRemoved = { fg = c.git_delete },
     diffChanged = { fg = c.git_change },
