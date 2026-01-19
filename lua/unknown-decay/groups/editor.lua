@@ -279,14 +279,13 @@ function M.get(c, config)
     DapUIWinSelect = { fg = c.blue, bold = true },
 
     -- Rainbow delimiters
-    RainbowDelimiterWhite = {fg = c.fg },
-    RainbowDelimiterRed = { fg = c.red },
-    RainbowDelimiterYellow = { fg = c.yellow },
+    RainbowDelimiterRed = { fg = c.dark_yellow },
+    RainbowDelimiterYellow = { fg = c.purple },
     RainbowDelimiterBlue = { fg = c.blue },
-    RainbowDelimiterOrange = { fg = c.orange },
-    RainbowDelimiterGreen = { fg = c.green },
-    RainbowDelimiterViolet = { fg = c.purple },
-    RainbowDelimiterCyan = { fg = c.cyan },
+    RainbowDelimiterOrange = { fg = c.dark_yellow },
+    RainbowDelimiterGreen = { fg = c.purple },
+    RainbowDelimiterViolet = { fg = c.blue },
+    RainbowDelimiterCyan = { fg = c.dark_yellow },
 
     -- Navic
     NavicText = { fg = c.fg },

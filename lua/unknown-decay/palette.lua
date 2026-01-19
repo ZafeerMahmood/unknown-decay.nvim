@@ -24,6 +24,7 @@ M.colors = {
   green = "#78dba9",
   purple = "#c68aee",
   yellow = "#f1cf8a",
+  dark_yellow ="#dad700", 
   orange = "#e9a180",
   red = "#e05f65",
 
