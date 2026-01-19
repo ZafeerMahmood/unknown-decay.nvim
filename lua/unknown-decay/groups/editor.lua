@@ -279,6 +279,7 @@ function M.get(c, config)
     DapUIWinSelect = { fg = c.blue, bold = true },
 
     -- Rainbow delimiters
+    RainbowDelimiterWhite = {fg = c.fg },
     RainbowDelimiterRed = { fg = c.red },
     RainbowDelimiterYellow = { fg = c.yellow },
     RainbowDelimiterBlue = { fg = c.blue },
