@@ -279,11 +279,12 @@ function M.get(c, config)
     DashboardKey = { fg = c.orange },
     DashboardDesc = { fg = c.fg },
     DashboardIcon = { fg = c.blue },
-    AlphaShortcut = { fg = c.teal },
-    AlphaHeader = { fg = c.blue },
-    AlphaHeaderLabel = { fg = c.orange },
-    AlphaFooter = { fg = c.gray, italic = true },
-    AlphaButtons = { fg = c.purple },
+    AlphaNormal = { fg = c.fg, bg = c.bg_dark },
+    AlphaShortcut = { fg = c.teal, bg = c.bg_dark },
+    AlphaHeader = { fg = c.green, bg = c.bg_dark },
+    AlphaHeaderLabel = { fg = c.orange, bg = c.bg_dark },
+    AlphaFooter = { fg = c.gray, bg = c.bg_dark, italic = true },
+    AlphaButtons = { fg = c.purple, bg = c.bg_dark },
 
     -- nvim-tree
     NvimTreeNormal = { fg = c.fg, bg = c.bg_dark },
