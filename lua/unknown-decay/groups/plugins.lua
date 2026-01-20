@@ -25,10 +25,10 @@ function M.get(c, config)
     TelescopeMatching = { fg = c.green, bold = true },
 
     -- Neo-tree
-    NeoTreeNormal = { fg = c.fg, bg = "#13171b" },
-    NeoTreeNormalNC = { fg = c.fg, bg = "#13171b" },
-    NeoTreeVertSplit = { fg = "#13171b", bg = "#13171b" },
-    NeoTreeWinSeparator = { fg = "#13171b", bg = "#13171b" },
+    NeoTreeNormal = { fg = c.fg, bg = c.bg_dark },
+    NeoTreeNormalNC = { fg = c.fg, bg = c.bg_dark },
+    NeoTreeVertSplit = { fg = c.bg_dark, bg = c.bg_dark },
+    NeoTreeWinSeparator = { fg = c.bg_dark, bg = c.bg_dark },
     NeoTreeEndOfBuffer = { fg = "#13171b" },
     NeoTreeRootName = { fg = c.fg, bold = true },
     NeoTreeFileName = { fg = c.fg },

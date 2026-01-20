@@ -32,7 +32,7 @@ return {
   terminal = {
     a = { bg = colors.teal, fg = colors.bg, gui = "bold" },
     b = { bg = colors.bg_highlight, fg = colors.fg },
-    c = { bg = colors.bg_light, fg = colors.fg },
+    c = { bg = colors.bg_dark, fg = colors.fg },
   },
   inactive = {
     a = { bg = colors.bg_light, fg = colors.gray },
