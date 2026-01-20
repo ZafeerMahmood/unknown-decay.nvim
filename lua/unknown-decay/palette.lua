@@ -3,6 +3,7 @@ local M = {}
 M.colors = {
   -- Backgrounds
   bg = "#171b20",
+  bg_alt = "#13171c",
   bg_dark = "#0e1217",
   bg_light = "#15191e",
   bg_highlight = "#1a1e23",

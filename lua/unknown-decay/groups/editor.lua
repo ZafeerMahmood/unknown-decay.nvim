@@ -5,8 +5,8 @@ function M.get(c, config)
 
   return {
     -- Core
-    Normal = { fg = c.fg, bg = transparent and "NONE" or c.bg },
-    NormalNC = { fg = c.fg, bg = transparent and "NONE" or c.bg },
+    Normal = { fg = c.fg, bg = transparent and "NONE" or c.bg_alt },
+    NormalNC = { fg = c.fg, bg = transparent and "NONE" or c.bg_alt },
     NormalFloat = { fg = c.fg, bg = c.bg_dark },
     FloatBorder = { fg = c.border_light, bg = c.bg_dark },
     FloatTitle = { fg = c.green, bg = c.bg_dark, bold = true },
