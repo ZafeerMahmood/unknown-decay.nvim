@@ -30,8 +30,8 @@ function M.get(c, config)
     LineNrBelow = { fg = c.fg },
 
     -- Sign column
-    SignColumn = { fg = c.fg, bg = transparent and "NONE" or c.bg },
-    FoldColumn = { fg = c.fg_dark, bg = transparent and "NONE" or c.bg },
+    SignColumn = { fg = c.fg, bg = transparent and "NONE" or c.bg_alt },
+    FoldColumn = { fg = c.fg_dark, bg = transparent and "NONE" or c.bg_alt },
 
     -- Fold
     Folded = { fg = c.gray, bg = c.fold },
@@ -152,8 +152,8 @@ function M.get(c, config)
     qfLineNr = { fg = c.yellow },
 
     -- Window
-    WinBar = { fg = c.fg, bg = transparent and "NONE" or c.bg },
-    WinBarNC = { fg = c.fg_dark, bg = transparent and "NONE" or c.bg },
+    WinBar = { fg = c.fg, bg = transparent and "NONE" or c.bg_alt },
+    WinBarNC = { fg = c.fg_dark, bg = transparent and "NONE" or c.bg_alt },
     WinBarPath = { fg = c.gray },
     WinBarFile = { fg = c.fg_light, bold = true },
     WinBarModified = { fg = c.git_change },
