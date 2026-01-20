@@ -9,8 +9,8 @@ function M.get(c, config)
     -- Variables
     ["@variable"] = { fg = c.fg_light },
     ["@variable.builtin"] = { fg = c.purple },
-    ["@variable.parameter"] = { fg = c.blue, italic = italic_parameters },
-    ["@variable.parameter.builtin"] = { fg = c.blue, italic = italic_parameters },
+    ["@variable.parameter"] = { fg = c.teal, italic = italic_parameters },
+    ["@variable.parameter.builtin"] = { fg = c.teal, italic = italic_parameters },
     ["@variable.member"] = { fg = c.cyan },
 
     -- Constants

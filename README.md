@@ -120,6 +120,26 @@ require("unknown-decay").setup({
 | Utilities | Lazy, Mason, Spectre, Overseer, Scrollbar |
 | Markdown | render-markdown |
 
+## Lualine Integration
+
+The theme includes a lualine theme that auto-loads when you set the colorscheme.
+
+```lua
+require("lualine").setup({
+  options = {
+    theme = "unknown-decay", -- Auto-discovered, no manual config needed
+  },
+})
+```
+
+Mode colors:
+- **Normal**: Blue
+- **Insert**: Green
+- **Visual**: Purple
+- **Replace**: Red
+- **Command**: Yellow
+- **Terminal**: Teal
+
 ## Utilities
 
 ### Reload colorscheme (during development)
