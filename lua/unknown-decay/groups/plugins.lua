@@ -344,6 +344,12 @@ function M.get(c, config)
     lualine_b_normal = { fg = c.fg, bg = c.bg_highlight },
     lualine_c_normal = { fg = c.fg, bg = c.bg_light },
 
+    -- ToggleTerm
+    ToggleTerm = { bg = c.bg_dark },
+    ToggleTermNormal = { fg = c.fg, bg = c.bg_dark },
+    ToggleTermNormalFloat = { fg = c.fg, bg = c.bg_dark },
+    ToggleTermFloatBorder = { fg = c.border_light, bg = c.bg_dark },
+
     -- Mason
     MasonNormal = { fg = c.fg, bg = c.bg_dark },
     MasonHeader = { fg = c.bg, bg = c.green, bold = true },
