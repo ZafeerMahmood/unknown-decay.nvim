@@ -45,8 +45,9 @@ M.colors = {
   git_conflict = "#c68aee",
   git_ignored = "#485263",
   git_untracked = "#7ddac5",
-  git_staged_mod = "#f1cf8a",
-  git_staged_del = "#e9a180",
+  git_staged_add = "#5a9a7a",
+  git_staged_mod = "#c9a86a",
+  git_staged_del = "#b04a50",
   git_submodule = "#70a5eb",
 
   -- Diff

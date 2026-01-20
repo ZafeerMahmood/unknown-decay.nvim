@@ -83,6 +83,15 @@ function M.get(c, config)
     GitSignsCurrentLineBlame = { fg = c.gray_dark, italic = true },
     GitSignsAddPreview = { fg = c.git_add },
     GitSignsDeletePreview = { fg = c.git_delete },
+    GitSignsStagedAdd = { fg = c.git_staged_add },
+    GitSignsStagedChange = { fg = c.git_staged_mod },
+    GitSignsStagedDelete = { fg = c.git_staged_del },
+    GitSignsStagedAddNr = { fg = c.git_staged_add },
+    GitSignsStagedChangeNr = { fg = c.git_staged_mod },
+    GitSignsStagedDeleteNr = { fg = c.git_staged_del },
+    GitSignsStagedAddLn = { bg = "#1a3025" },
+    GitSignsStagedChangeLn = { bg = "#2a2820" },
+    GitSignsStagedDeleteLn = { bg = "#2d1a1c" },
 
     -- Which-key
     WhichKey = { fg = c.sky },
